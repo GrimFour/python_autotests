@@ -46,13 +46,18 @@ WH2_and_WH3_count = 222950 # На другому і третьому разом
 WH3_product_count = all_warehouses_product_count - WH1_and_WH2_count # Третій склад
 WH1_product_count = all_warehouses_product_count - WH2_and_WH3_count # Перший склад
 
-WH1_and_WH3_cont = WH1_product_count + WH3_product_count # На першому і третьому разом
+WH1_and_WH3_count = WH1_product_count + WH3_product_count # На першому і третьому разом
 
-WH2_product_count = all_warehouses_product_count - WH1_and_WH2_count # Другий склад
+WH2_product_count = all_warehouses_product_count - WH1_and_WH3_count # Другий склад
 
 print(f'''First WH have {WH1_product_count} products, 
 second WH have {WH2_product_count} products,
 third WH have {WH3_product_count} products.''')
+
+#тут перевіримо всі товари з задачі і суму по всім складам з обчислень
+all_calculated = WH1_product_count + WH2_product_count + WH3_product_count
+if all_calculated == all_warehouses_product_count:
+    print(True)
 
 # task 06
 """
@@ -143,11 +148,8 @@ tank = 48
 #1
 all_fuel = fuel_consump * 1600
 print(f'Скільки літрів бензину знадобиться для такої подорожі: {all_fuel}')
-#2 лол знадобилось рішення з таски 9 - копіпаста
-stops_count = distance / tank
-print(f'Грубе обчислення стопів тут для наочності: {stops_count}')
-if 0 == distance % tank:
-    print(f'Потрібно щонайменше {int(stops_count)} зупинок')
-else:
-    print(f'Потрібно щонайменше {int(stops_count)+1} зупинок')
+#2
+distance_in_one_tank = tank / fuel_consump
+stops_count = distance / distance_in_one_tank
+print(f'Мінімум зупинок: {int(stops_count)}')
 
