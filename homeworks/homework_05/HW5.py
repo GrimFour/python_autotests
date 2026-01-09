@@ -21,3 +21,37 @@ people_records = [
   ('Ava', 'White', 42, 'Journalist', 'San Diego'),
   ('Ethan', 'Anderson', 36, 'Product Manager', 'Phoenix')
 ]
+
+#1
+new_record = ('Maks', 'Skam', 44, 'Builder', 'Kenugard')
+people_records.append(new_record)
+
+#2
+index_one = people_records[1]
+index_five = people_records[5]
+
+people_records[1] = index_five
+people_records[5] = index_one
+print(people_records)
+
+#3
+
+# def is_age_above_30_no_index(data):
+#   for i in range(len(data)):
+#     if data[i][2] >= 30:
+#        print(f'\n Person #{i} is older than 30. OK')
+#     else:
+#        print(f'\n Person #{i} is more than 30. NOT OK')
+#
+# is_age_above_30_no_index(people_records)
+
+index_to_check = [6, 10, 13]
+age_index = 2
+
+def is_age_above_30(data, indexes, age_idx):
+  for i in indexes:
+    if data[i][age_idx] <= 30:
+       print(f'\n Person #{i} is less than 30. NOT OK')
+    else: print(f'\nPerson #{i} is more than 30. OK')
+
+is_age_above_30(people_records, index_to_check, age_index)
