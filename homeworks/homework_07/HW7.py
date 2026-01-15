@@ -3,21 +3,24 @@
 лише до максимального значення для добутку - 25.
 Код майже готовий, треба знайти помилки та випраавити\доповнити.
 """
+print(f'\nTask 1')
 def multiplication_table(number):
     # Initialize the appropriate variable
     multiplier = 1
 
     # Complete the while loop condition.
-    while multiplier <= number:
-        result = number * multiplier
-        # десь тут помила, а може не одна
-        if  result > "25":
-            # Enter the action to take if the result is greater than 25
-            pass
+    while multiplier * number <= 25:
+        result = multiplier * number
         print(str(number) + "x" + str(multiplier) + "=" + str(result))
+        # result = number * multiplier
+        # # десь тут помила, а може не одна
+        # if  result > 25:
+        #     # Enter the action to take if the result is greater than 25
+        #     pass
+        # print(str(number) + "x" + str(multiplier) + "=" + str(result))
 
         # Increment the appropriate variable
-        multi += 1
+        multiplier += 1
 
 multiplication_table(3)
 # Should print:
@@ -31,11 +34,19 @@ multiplication_table(3)
 # task 2
 """  Написати функцію, яка обчислює суму двох чисел.
 """
+print(f'\nTask 2')
+def plus (first_number: int, second_number: int) -> int:
+    print(f'{first_number} + {second_number} = {first_number + second_number}')
 
+plus(5, 2)
 
 # task 3
 """  Написати функцію, яка розрахує середнє арифметичне списку чисел.
 """
+print(f'\nTask 3')
+
+# def avarage(list: list):
+
 
 # task 4
 """  Написати функцію, яка приймає рядок та повертає його у зворотному порядку.
