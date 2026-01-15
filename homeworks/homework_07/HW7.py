@@ -45,16 +45,33 @@ plus(5, 2)
 """
 print(f'\nTask 3')
 
-# def avarage(list: list):
+def avarage_func(some_list: list):
+    sum = 0
+    for number in some_list:
+        sum += number
+    result = sum / len(some_list)
+    print(result)
 
+my_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+avarage_func(my_list)
 
 # task 4
 """  Написати функцію, яка приймає рядок та повертає його у зворотному порядку.
 """
+print(f'\nTask 4')
+
+def reverse_string(s: str) -> str:
+    return s[::-1]
+
+print(reverse_string('Hello, world!'))
+#даров, Олег
 
 # task 5
 """  Написати функцію, яка приймає список слів та повертає найдовше слово у списку.
 """
+print(f'\nTask 5')
+
+
 
 # task 6
 """  Написати функцію, яка приймає два рядки та повертає індекс першого входження другого рядка
