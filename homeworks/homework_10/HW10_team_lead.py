@@ -50,5 +50,6 @@ def test_teamlead_attributes():
     assert tl.programming_language == 'PseudoPython'
     assert tl.team_size == 777 # має впасти бо 777 а не 7
 
+print(TeamLead.mro())
 test_teamlead_attributes()
 print('OK')
