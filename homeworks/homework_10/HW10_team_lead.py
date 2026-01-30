@@ -29,13 +29,13 @@ class Developer(Employee):
 
 class TeamLead(Manager, Developer):
     def __init__(self, name, salary, department, programming_language, team_size):
-        Employee.__init__(self, name, salary)
-        self.department = department
-        self.programming_language = programming_language
+        Manager.__init__(self, name, salary, department)
+        Developer.__init__(self, name, salary, programming_language)
         self.team_size = team_size
 
+
 # Костильний тест ок, чи треба щоб з рандомним екземпляром міг взаємодіяти?
-def test_teamlead_attributes():
+def old_test_teamlead_attributes():
     tl = TeamLead(
         name='Maks',
         salary=15000,
@@ -48,8 +48,33 @@ def test_teamlead_attributes():
     assert tl.salary == 15000
     assert tl.department == 'IT'
     assert tl.programming_language == 'PseudoPython'
-    assert tl.team_size == 777 # має впасти бо 777 а не 7
+    assert tl.team_size == 7 # має впасти бо 777 а не 7
 
-print(TeamLead.mro())
+old_test_teamlead_attributes()
+print(f'Old test OK\n')
+
+# Спробую варіант з hasattr() але той згори теж працює
+def test_teamlead_attributes():
+    tl = TeamLead(
+        name='Maks',
+        salary=15000,
+        department='IT',
+        programming_language='PseudoPython',
+        team_size=7
+    )
+
+    checks = {
+        "name (Employee)": hasattr(tl, "name") and tl.name == "Maks",
+        "salary (Employee)": hasattr(tl, "salary") and tl.salary == 15000,
+        "department (Manager)": hasattr(tl, "department") and tl.department == "IT",
+        "programming_language (Developer)": hasattr(tl, "programming_language") and tl.programming_language == "PseudoPython",
+        "team_size (TeamLead)": hasattr(tl, "team_size") and tl.team_size == 7,
+    }
+
+    for check, result in checks.items():
+        print(f"{check}: {'OK' if result else 'FAIL'}")
+        assert result
+
+
+print("MRO:", TeamLead.mro())
 test_teamlead_attributes()
-print('OK')
